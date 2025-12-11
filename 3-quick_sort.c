@@ -15,19 +15,17 @@ void swap_ints(int *a, int *b)
 }
 
 /**
- * lomuto_partition - Partitions an array using Lomuto scheme
- * @array: The array to partition
- * @lo: Low index
- * @hi: High index
+ * lomuto_partition - Partitions an array using the Lomuto scheme
+ * @array: Array to partition
+ * @lo: Starting index
+ * @hi: Ending index
  * @size: Size of the array
- * Return: The pivot index
+ * Return: The partition index
  */
 int lomuto_partition(int *array, int lo, int hi, size_t size)
 {
-	int pivot, i, j;
-
-	pivot = array[hi];
-	i = lo;
+	int pivot = array[hi];
+	int i = lo, j;
 
 	for (j = lo; j < hi; j++)
 	{
@@ -41,21 +39,19 @@ int lomuto_partition(int *array, int lo, int hi, size_t size)
 			i++;
 		}
 	}
-
 	if (i != hi)
 	{
 		swap_ints(array + i, array + hi);
 		print_array(array, size);
 	}
-
 	return (i);
 }
 
 /**
- * quick_sort_recursive - Recursively sorts an array using Quick sort
+ * quick_sort_recursive - Recursively sorts an array
  * @array: Array to sort
- * @lo: Low index
- * @hi: High index
+ * @lo: Starting index
+ * @hi: Ending index
  * @size: Size of the array
  */
 void quick_sort_recursive(int *array, int lo, int hi, size_t size)
@@ -71,7 +67,7 @@ void quick_sort_recursive(int *array, int lo, int hi, size_t size)
 }
 
 /**
- * quick_sort - Sorts an array of integers in ascending order
+ * quick_sort - Sorts an array of integers in ascending order using Quick sort
  * @array: Array to sort
  * @size: Size of the array
  */
